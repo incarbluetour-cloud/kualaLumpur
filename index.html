@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인카블루투어 · 2026 우수영업관리자 컨퍼런스 (골프조)</title>
+<!-- ⭐ 어딩(Eoding) 업로드용 · 스크립트 0개 · 이 파일 하나로 완결 (약도 이미지 내장) -->
+<style>
+
+/* ============================================================
+   인카블루투어 · 쿠알라룸푸르 우수영업관리자 컨퍼런스 (골프조) · Eoding CMS 호환
+   - 클래스 접두사 gm- (CMS 충돌 방지)
+   - 탭(일정 · 준비사항): CSS 라디오 :checked 방식 (JS 불필요)
+   - 시계: JS 제거 환경(어딩) 호환용 시차 및 타임존 표기
+   - 브랜드 네이비 #27398C / 골드 #C9A227 / 라군 터콰이즈 #10A8B8
+   ============================================================ */
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css');
+
+html, body {
+  overflow-x: clip;
+}
+
+.gm-wrap{
+  --gm-navy:#27398C;
+  --gm-navy-deep:#1B2A6B;
+  --gm-lagoon:#10A8B8;
+  --gm-lagoon-soft:#E4F6F8;
+  --gm-gold:#C9A227;
+  --gm-sand:#FBF7EF;
+  --gm-ink:#20242E;
+  --gm-gray:#6B7280;
+  --gm-line:#E5E7EB;
+  font-family:'SUIT',-apple-system,BlinkMacSystemFont,system-ui,'Malgun Gothic',sans-serif;
+  color:var(--gm-ink);
+  line-height:1.65;
+  font-size:16px;
+  word-break:keep-all;
+  background:#fff;
+  isolation: isolate;
+}
+.gm-wrap *{box-sizing:border-box;margin:0;padding:0;}
+.gm-wrap img{max-width:100%;display:block;}
+.gm-wrap a{text-decoration:none;color:inherit;}
+.gm-wrap ul{list-style:none;}
+
+/* ---------- 풀블리드 (어딩 표준) ---------- */
+.gm-bleed{width:100vw;margin-left:calc(50% - 50vw);}
+
+/* ---------- 히어로 ---------- */
+.gm-hero{
+  position:relative;
+  background:
+    linear-gradient(165deg,rgba(20,31,84,.82) 0%,rgba(31,45,110,.62) 45%,rgba(10,120,138,.55) 100%),
+    url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=1800&q=70') center 42%/cover no-repeat,
+    linear-gradient(160deg,var(--gm-navy-deep) 0%,var(--gm-navy) 45%,var(--gm-lagoon) 130%);
+  color:#fff;
+  text-align:center;
+  padding:80px 24px 110px;
+  overflow:hidden;
+}
+.gm-hero-title,.gm-hero-sub,.gm-hero-eyebrow,.gm-hero-date{
+  text-shadow:0 2px 14px rgba(10,18,55,.45);
+}
+.gm-hero::after{
+  content:'';
+  position:absolute;left:0;right:0;bottom:-1px;height:46px;
+  background:#fff;
+  clip-path:ellipse(75% 100% at 50% 100%);
+}
+.gm-hero-eyebrow{
+  display:inline-block;
+  font-size:13px;font-weight:600;letter-spacing:.35em;
+  color:rgba(255,255,255,.85);
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:999px;
+  padding:7px 20px 7px 22px;
+  margin-bottom:26px;
+}
+.gm-hero-title{
+  font-size:clamp(56px,10vw,92px);
+  font-weight:800;
+  letter-spacing:.14em;
+  line-height:1.05;
+  margin-bottom:12px;
+}
+.gm-hero-title .gm-star{color:var(--gm-gold);font-size:.5em;vertical-align:.55em;}
+.gm-hero-sub{font-size:clamp(15px,2.6vw,19px);font-weight:400;color:rgba(255,255,255,.92);}
+.gm-hero-sub b{font-weight:700;color:#fff;}
+.gm-hero-date{
+  display:inline-block;margin-top:18px;
+  background:rgba(16,26,74,.45);border:1px solid rgba(255,255,255,.4);
+  border-radius:999px;padding:8px 22px;
+  font-size:14.5px;font-weight:600;letter-spacing:.03em;
+  backdrop-filter:blur(3px);
+}
+
+/* ---------- 인포바 (시계 + 환율/날씨 링크) ---------- */
+.gm-infobar{
+  max-width:900px;margin:-58px auto 0;padding:0 20px;
+  position:relative;z-index:2;
+}
+.gm-clocks{
+  display:flex;align-items:stretch;gap:0;
+  background:#fff;border:1px solid var(--gm-line);border-radius:18px;
+  box-shadow:0 10px 28px rgba(27,42,107,.12);
+  overflow:hidden;
+}
+.gm-clock{flex:1;text-align:center;padding:20px 10px 18px;}
+.gm-clock-city{display:block;font-size:12.5px;font-weight:700;letter-spacing:.12em;color:var(--gm-gray);margin-bottom:4px;}
+.gm-clock-time{display:block;font-size:clamp(22px,4.5vw,30px);font-weight:800;color:var(--gm-navy);font-variant-numeric:tabular-nums;line-height:1.15;}
+.gm-clock-sub{display:block;font-size:12px;color:var(--gm-gray);margin-top:3px;}
+.gm-clock-mid{
+  flex:0 0 auto;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:0 14px;background:var(--gm-lagoon-soft);
+  font-size:12px;font-weight:700;color:#0B7681;line-height:1.5;text-align:center;
+}
+.gm-clock-mid b{font-size:15px;}
+.gm-live{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+.gm-live-card{
+  display:flex;align-items:center;gap:12px;
+  background:#fff;border:1px solid var(--gm-line);border-radius:16px;
+  padding:14px 16px;
+  box-shadow:0 4px 14px rgba(27,42,107,.10);
+}
+.gm-live-card:hover{border-color:var(--gm-lagoon);}
+.gm-live-ico{font-size:30px;line-height:1;flex:0 0 auto;}
+.gm-live-main{display:block;font-size:16.5px;font-weight:800;color:var(--gm-navy);line-height:1.3;font-variant-numeric:tabular-nums;}
+.gm-live-sub{display:block;font-size:12px;color:var(--gm-gray);margin-top:2px;}
+
+/* ---------- 공통 섹션 ---------- */
+.gm-sec{max-width:900px;margin:0 auto;padding:56px 20px 0;}
+.gm-sec-title{
+  font-size:clamp(22px,4vw,27px);font-weight:800;color:var(--gm-navy);
+  display:flex;align-items:center;gap:12px;margin-bottom:26px;
+}
+.gm-sec-title::after{content:'';flex:1;height:1px;background:var(--gm-line);}
+
+/* ---------- 여행 개요 ---------- */
+.gm-ov{display:grid;gap:12px;}
+.gm-ov-item{
+  display:flex;gap:16px;align-items:flex-start;
+  background:var(--gm-sand);border-radius:14px;padding:18px 20px;
+}
+.gm-ov-ico{font-size:22px;line-height:1.4;}
+.gm-ov-item h4{font-size:13.5px;font-weight:700;color:var(--gm-gold);letter-spacing:.06em;margin-bottom:3px;}
+.gm-ov-item p{font-size:16px;font-weight:600;}
+.gm-ov-item small{display:block;font-size:13px;font-weight:400;color:var(--gm-gray);margin-top:4px;}
+.gm-ov-map{
+  display:inline-block;margin-left:8px;font-size:13px;font-weight:600;
+  color:var(--gm-lagoon);border-bottom:1px solid currentColor;white-space:nowrap;
+}
+
+/* ---------- 항공편 카드 ---------- */
+.gm-flight{
+  background:linear-gradient(135deg,var(--gm-navy-deep),var(--gm-navy));
+  color:#fff;border-radius:18px;padding:28px 26px;margin-top:18px;
+}
+.gm-flight-head{font-size:16px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.gm-flight-rows{display:grid;gap:12px;}
+.gm-flight-row{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;padding:18px 20px;
+}
+.gm-f-label{font-size:12px;font-weight:600;letter-spacing:.08em;color:var(--gm-gold);margin-bottom:6px;}
+.gm-f-port{font-size:24px;font-weight:800;letter-spacing:.04em;}
+.gm-f-time{font-size:15px;font-weight:500;color:rgba(255,255,255,.85);}
+.gm-f-mid{text-align:center;flex:1;}
+.gm-f-no{font-size:14px;font-weight:700;letter-spacing:.06em;}
+.gm-f-line{height:1px;background:rgba(255,255,255,.35);margin:8px 10px;position:relative;}
+.gm-f-line::after{content:'✈';position:absolute;top:-11px;left:50%;transform:translateX(-50%);font-size:13px;}
+.gm-f-note{font-size:12px;color:rgba(255,255,255,.7);}
+.gm-flight-foot{margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.85);line-height:1.7;}
+.gm-flight-foot b{color:#fff;}
+
+/* ---------- 하이라이트 배너 ---------- */
+.gm-banner{
+  margin-top:20px;border-radius:14px;padding:18px 22px;
+  background:var(--gm-lagoon-soft);border:1px solid #BEE7EC;
+  font-size:15px;font-weight:600;color:#0B7681;text-align:center;line-height:1.7;
+}
+.gm-banner b{color:#075E67;}
+
+/* ---------- 탭 공통 (CSS 라디오) ---------- */
+.gm-days input[type=radio],
+.gm-prep input[type=radio]{position:absolute;opacity:0;pointer-events:none;}
+.gm-tabbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px;}
+.gm-tabbar label{
+  display:block;text-align:center;cursor:pointer;
+  border:1.5px solid var(--gm-line);border-radius:12px;
+  padding:13px 4px;background:#fff;
+  font-size:14px;font-weight:700;color:var(--gm-gray);
+  line-height:1.35;
+}
+.gm-tabbar label em{display:block;font-style:normal;font-size:12px;font-weight:500;}
+.gm-tab-hint{text-align:center;font-size:13px;color:var(--gm-gray);margin:10px 0 18px;}
+.gm-panel{display:none;}
+
+/* 일정 탭 */
+#gm-d1:checked ~ .gm-tabbar label[for=gm-d1],
+#gm-d2:checked ~ .gm-tabbar label[for=gm-d2],
+#gm-d3:checked ~ .gm-tabbar label[for=gm-d3],
+#gm-d4:checked ~ .gm-tabbar label[for=gm-d4],
+#gm-d5:checked ~ .gm-tabbar label[for=gm-d5]{
+  background:var(--gm-navy);border-color:var(--gm-navy);color:#fff;
+  box-shadow:0 6px 16px rgba(39,57,140,.22);
+}
+#gm-d1:checked ~ .gm-p1,
+#gm-d2:checked ~ .gm-p2,
+#gm-d3:checked ~ .gm-p3,
+#gm-d4:checked ~ .gm-p4,
+#gm-d5:checked ~ .gm-p5{display:block;}
+
+/* 준비사항 탭 */
+#gm-t1:checked ~ .gm-tabbar label[for=gm-t1],
+#gm-t2:checked ~ .gm-tabbar label[for=gm-t2],
+#gm-t3:checked ~ .gm-tabbar label[for=gm-t3],
+#gm-t4:checked ~ .gm-tabbar label[for=gm-t4]{
+  background:var(--gm-lagoon);border-color:var(--gm-lagoon);color:#fff;
+  box-shadow:0 6px 16px rgba(16,168,184,.25);
+}
+#gm-t1:checked ~ .gm-q1,
+#gm-t2:checked ~ .gm-q2,
+#gm-t3:checked ~ .gm-q3,
+#gm-t4:checked ~ .gm-q4{display:block;}
+
+/* 추천 스팟 탭 */
+.gm-spot-tabs input[type=radio]{position:absolute;opacity:0;pointer-events:none;}
+.gm-spot-tabs .gm-tabbar{grid-template-columns:repeat(3,1fr);}
+#gm-s1:checked ~ .gm-tabbar label[for=gm-s1],
+#gm-s2:checked ~ .gm-tabbar label[for=gm-s2],
+#gm-s3:checked ~ .gm-tabbar label[for=gm-s3]{
+  background:var(--gm-gold);border-color:var(--gm-gold);color:#fff;
+  box-shadow:0 6px 16px rgba(201,162,39,.28);
+}
+#gm-s1:checked ~ .gm-sp1,
+#gm-s2:checked ~ .gm-sp2,
+#gm-s3:checked ~ .gm-sp3{display:block;}
+
+/* 선택관광 아이템 */
+.gm-opt-banner{
+  margin-bottom:14px;border-radius:14px;padding:16px 20px;
+  background:var(--gm-sand);border:1px solid #EADFC2;
+  font-size:14px;font-weight:600;color:#7A6A33;text-align:center;line-height:1.7;
+}
+.gm-opt-banner b{color:#9C7E14;}
+.gm-opts{display:grid;gap:12px;}
+.gm-opt{
+  position:relative;border:1px solid var(--gm-line);border-radius:16px;
+  padding:18px 20px;background:#fff;
+  box-shadow:0 4px 14px rgba(32,36,46,.04);
+}
+.gm-opt-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:5px;padding-right:86px;}
+.gm-opt-head h5{font-size:16px;font-weight:800;color:var(--gm-ink);}
+.gm-opt-head small{font-size:12.5px;font-weight:500;color:var(--gm-gray);}
+.gm-opt-badge{
+  position:absolute;top:18px;right:18px;
+  font-size:11.5px;font-weight:700;color:#9C7E14;
+  background:#FBF3DC;border:1px solid #EADFC2;border-radius:999px;
+  padding:4px 11px;white-space:nowrap;
+}
+.gm-opt p{font-size:13.5px;color:var(--gm-gray);line-height:1.65;}
+.gm-opt p b{color:var(--gm-ink);}
+
+/* ---------- 일차 패널 ---------- */
+.gm-day{
+  border:1px solid var(--gm-line);border-radius:18px;
+  padding:30px 26px;background:#fff;
+  box-shadow:0 6px 22px rgba(32,36,46,.05);
+}
+.gm-day-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:6px;}
+.gm-day-head h3{font-size:21px;font-weight:800;color:var(--gm-navy);}
+.gm-day-head span{font-size:15px;font-weight:600;color:var(--gm-lagoon);}
+.gm-meal{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px;}
+.gm-meal li{
+  font-size:13px;font-weight:600;
+  background:var(--gm-sand);border-radius:999px;padding:6px 14px;color:#7A6A33;
+}
+.gm-meal li b{color:var(--gm-gold);margin-right:4px;}
+
+/* 타임라인 */
+.gm-tl{position:relative;padding-left:86px;}
+.gm-tl::before{
+  content:'';position:absolute;left:66px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(var(--gm-lagoon),var(--gm-navy));border-radius:2px;
+}
+.gm-tl-item{position:relative;padding:0 0 24px;}
+.gm-tl-item:last-child{padding-bottom:0;}
+.gm-tl-item::before{
+  content:'';position:absolute;left:-25px;top:7px;width:12px;height:12px;
+  background:#fff;border:3px solid var(--gm-lagoon);border-radius:50%;
+}
+.gm-tl-time{
+  position:absolute;left:-86px;top:4px;width:52px;text-align:right;
+  font-size:14px;font-weight:800;color:var(--gm-navy);letter-spacing:.02em;
+}
+.gm-tl-item h5{font-size:16.5px;font-weight:700;margin-bottom:3px;}
+.gm-tl-item p{font-size:14px;color:var(--gm-gray);}
+.gm-tl-item .gm-em{color:#B4232A;font-weight:700;}
+
+/* 포함사항 그리드 */
+.gm-inc{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.gm-inc li{
+  font-size:13.5px;font-weight:500;color:var(--gm-ink);
+  background:var(--gm-lagoon-soft);border-radius:10px;padding:9px 13px;
+}
+.gm-inc li::before{content:'✓ ';color:var(--gm-lagoon);font-weight:800;}
+
+/* 호텔/마감 라인 */
+.gm-hotel{
+  margin-top:24px;background:var(--gm-navy);color:#fff;border-radius:12px;
+  padding:14px 18px;font-size:15px;font-weight:700;text-align:center;
+}
+.gm-hotel small{display:block;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.75);margin-top:2px;}
+.gm-day-note{margin-top:12px;text-align:center;font-size:12.5px;color:var(--gm-gray);}
+
+/* ---------- 준비사항 카드 ---------- */
+.gm-card{
+  border:1px solid var(--gm-line);border-radius:18px;padding:28px 26px;
+  background:#fff;box-shadow:0 6px 22px rgba(32,36,46,.05);
+}
+.gm-card h4{
+  font-size:18px;font-weight:800;color:var(--gm-navy);
+  margin-bottom:16px;display:flex;align-items:center;gap:9px;
+}
+.gm-items{display:grid;gap:0;}
+.gm-item{display:flex;gap:14px;padding:13px 0;border-top:1px dashed var(--gm-line);}
+.gm-item:first-child{border-top:0;padding-top:0;}
+.gm-item-ico{font-size:20px;flex:0 0 28px;text-align:center;}
+.gm-item h6{font-size:15px;font-weight:700;margin-bottom:2px;}
+.gm-item p{font-size:14px;color:var(--gm-gray);}
+.gm-item p b{color:var(--gm-ink);}
+.gm-item p .gm-em{color:#B4232A;font-weight:700;}
+
+/* 표 */
+.gm-table{width:100%;border-collapse:collapse;font-size:14px;margin:6px 0 14px;}
+.gm-table th,.gm-table td{border:1px solid var(--gm-line);padding:11px 13px;text-align:left;vertical-align:top;}
+.gm-table th{background:var(--gm-sand);font-weight:700;width:32%;color:var(--gm-navy);}
+.gm-table td b{color:var(--gm-ink);}
+.gm-warn{
+  margin-top:14px;background:#FDF2F2;border:1px solid #F3C8C8;border-radius:12px;
+  padding:14px 16px;font-size:13.5px;color:#8A2626;line-height:1.7;
+}
+.gm-warn b{color:#B4232A;}
+.gm-tip{
+  margin-top:14px;background:var(--gm-lagoon-soft);border:1px solid #BEE7EC;border-radius:12px;
+  padding:14px 16px;font-size:13.5px;color:#0B6E78;line-height:1.7;
+}
+.gm-tip b{color:#075E67;}
+
+/* ---------- 추천 스팟 ---------- */
+.gm-spots{display:grid;gap:12px;}
+.gm-spot{
+  display:block;position:relative;
+  border:1px solid var(--gm-line);border-radius:16px;
+  padding:18px 20px;background:#fff;
+  box-shadow:0 4px 14px rgba(32,36,46,.04);
+}
+.gm-spot:hover{border-color:var(--gm-lagoon);}
+.gm-spot-head{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:5px;}
+.gm-spot-head h5{font-size:16px;font-weight:800;color:var(--gm-ink);}
+.gm-spot-head small{font-size:12.5px;font-weight:500;color:var(--gm-gray);}
+.gm-spot-map{
+  position:absolute;top:18px;right:18px;
+  font-size:12.5px;font-weight:700;color:var(--gm-lagoon);
+}
+.gm-spot p{font-size:13.5px;color:var(--gm-gray);line-height:1.65;padding-right:56px;}
+.gm-spot p b{color:var(--gm-ink);}
+
+/* ---------- 골프장 카드 ---------- */
+.gm-golf{display:grid;gap:16px;}
+.gm-golf-card{border:1px solid var(--gm-line);border-radius:18px;padding:24px 24px;background:#fff;box-shadow:0 6px 22px rgba(32,36,46,.05);}
+.gm-golf-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;margin-bottom:4px;}
+.gm-golf-head h5{font-size:19px;font-weight:800;color:var(--gm-navy);}
+.gm-golf-head small{font-size:12.5px;color:var(--gm-gray);}
+.gm-golf-tee{display:inline-block;margin:10px 0 16px;font-size:13.5px;font-weight:800;color:#fff;background:var(--gm-lagoon);border-radius:999px;padding:6px 15px;letter-spacing:.02em;}
+.gm-golf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px;margin-bottom:16px;}
+.gm-golf-grid div{font-size:14px;}
+.gm-golf-grid b{display:block;font-size:12px;font-weight:700;color:var(--gm-gold);letter-spacing:.04em;margin-bottom:1px;}
+.gm-golf-card p{font-size:13.8px;color:var(--gm-gray);line-height:1.7;}
+.gm-golf-card p b{color:var(--gm-ink);}
+
+/* ---------- eSIM 버튼 & 약도 ---------- */
+.gm-esim{display:inline-flex;align-items:center;gap:8px;margin-top:10px;background:var(--gm-lagoon);color:#fff;font-weight:700;font-size:14.5px;border-radius:12px;padding:12px 20px;box-shadow:0 6px 16px rgba(16,168,184,.25);}
+.gm-esim small{font-weight:500;opacity:.9;font-size:12px;}
+.gm-meetmap{margin-top:22px;border:1px solid var(--gm-line);border-radius:16px;overflow:hidden;box-shadow:0 6px 18px rgba(32,36,46,.06);}
+.gm-meetmap img{width:100%;display:block;}
+.gm-meetmap-cap{font-size:13px;color:var(--gm-gray);text-align:center;padding:10px 14px;background:var(--gm-sand);}
+
+/* ---------- 카카오 문의 + 푸터 ---------- */
+.gm-cta{
+  max-width:900px;margin:64px auto 0;padding:0 20px;text-align:center;
+}
+.gm-cta h3{font-size:clamp(19px,3.6vw,23px);font-weight:800;color:var(--gm-navy);margin-bottom:8px;}
+.gm-cta p{font-size:14.5px;color:var(--gm-gray);margin-bottom:20px;}
+.gm-kakao{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#FEE500;color:#191919;
+  border-radius:14px;padding:16px 34px;
+  font-size:16.5px;font-weight:800;
+  box-shadow:0 8px 20px rgba(254,229,0,.35);
+}
+.gm-kakao:hover{filter:brightness(.96);}
+.gm-cta small{display:block;margin-top:14px;font-size:13px;color:var(--gm-gray);}
+
+.gm-footer{
+  margin-top:56px;background:var(--gm-navy-deep);color:rgba(255,255,255,.85);
+  text-align:center;padding:40px 20px 36px;font-size:13.5px;line-height:1.9;
+}
+.gm-footer b{color:#fff;font-size:15px;letter-spacing:.04em;}
+.gm-footer .gm-slogan{color:var(--gm-gold);font-weight:600;}
+.gm-copy{
+  display:block;margin-top:16px;padding-top:16px;
+  border-top:1px solid rgba(255,255,255,.15);
+  font-size:12px;color:rgba(255,255,255,.55);letter-spacing:.03em;
+}
+
+/* ---------- 데스크톱 (≥760px) ---------- */
+@media (min-width:760px){
+  .gm-ov{grid-template-columns:repeat(3,1fr);}
+  .gm-ov-item{flex-direction:column;gap:8px;padding:22px;}
+  .gm-flight-rows{grid-template-columns:1fr 1fr;}
+  .gm-items.gm-2col{grid-template-columns:1fr 1fr;column-gap:34px;}
+  .gm-items.gm-2col .gm-item:nth-child(2){border-top:0;padding-top:0;}
+  .gm-spots{grid-template-columns:1fr 1fr;}
+  .gm-clock-time{font-size:34px;}
+  .gm-opts{grid-template-columns:1fr 1fr;}
+}
+
+/* ---------- 모바일 (≤620px) ---------- */
+@media (max-width:620px){
+  .gm-hero{padding:60px 18px 96px;}
+  .gm-clock-mid{padding:0 10px;}
+  .gm-live-ico{font-size:25px;}
+  .gm-live-main{font-size:14.5px;}
+  .gm-live-card{padding:12px 13px;gap:9px;}
+  .gm-tabbar{grid-template-columns:repeat(2,1fr);}
+  .gm-flight-row{flex-direction:column;align-items:stretch;text-align:center;}
+  .gm-f-mid{width:100%;}
+  .gm-tl{padding-left:70px;}
+  .gm-tl::before{left:54px;}
+  .gm-tl-time{left:-70px;width:44px;font-size:13px;}
+  .gm-tl-item::before{left:-21px;}
+  .gm-inc{grid-template-columns:1fr;}
+  .gm-day,.gm-card{padding:24px 18px;}
+  .gm-spot-map{position:static;display:inline-block;margin-top:6px;}
+  .gm-spot p{padding-right:0;}
+  .gm-opt-badge{position:static;display:inline-block;margin-bottom:6px;}
+  .gm-opt-head{padding-right:0;}
+  .gm-spot-tabs .gm-tabbar{grid-template-columns:repeat(3,1fr);}
+}
+
+</style>
+</head>
+<body>
+
+<div class="gm-wrap">
+
+  <!-- 히어로 -->
+  <section class="gm-hero gm-bleed">
+    <h1 class="gm-hero-title">KUALA LUMPUR<span class="gm-star"> ✦</span></h1>
+    <p class="gm-hero-sub"><b>2026 인카 우수영업관리자 해외 컨퍼런스</b></p>
+    <div class="gm-hero-date">🏌️ 골프조 · 2026. 9. 2(수) — 9. 6(일) · 3박 5일</div>
+  </section>
+
+  <!-- 시계 · 날씨 · 환율 -->
+  <div class="gm-infobar">
+    <div class="gm-clocks">
+      <div class="gm-clock">
+        <span class="gm-clock-city">SEOUL · 서울</span>
+        <span class="gm-clock-time">KST (GMT+9)</span>
+        <span class="gm-clock-sub">대한민국 표준시</span>
+      </div>
+      <div class="gm-clock-mid"><b>-1h</b>쿠알라룸푸르가<br>1시간 느림</div>
+      <div class="gm-clock">
+        <span class="gm-clock-city">KUALA LUMPUR · KL</span>
+        <span class="gm-clock-time">MYT (GMT+8)</span>
+        <span class="gm-clock-sub">말레이시아 표준시</span>
+      </div>
+    </div>
+    <div class="gm-live">
+      <a class="gm-live-card" href="https://www.google.com/search?q=%EC%BF%A0%EC%95%8C%EB%9D%BC%EB%A3%B8%ED%91%B8%EB%A5%B4%20%EB%82%A0%EC%94%A8" target="_blank" rel="noopener">
+        <span class="gm-live-ico">🌤️</span>
+        <span><span class="gm-live-main">쿠알라룸푸르 날씨</span>
+        <span class="gm-live-sub">실시간 날씨 보기 ›</span></span>
+      </a>
+      <a class="gm-live-card" href="https://www.kebhana.com/exchange_rate/excRate.do?subMenu=1" target="_blank" rel="noopener">
+        <span class="gm-live-ico" style="font-size:24px;font-weight:800;color:var(--gm-navy);">RM</span>
+        <span><span class="gm-live-main">링깃(MYR) 환율</span>
+        <span class="gm-live-sub">하나은행 실시간 환율 보기 ›</span></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 여행 개요 -->
+  <section class="gm-sec">
+    <h2 class="gm-sec-title">여행 개요</h2>
+    <div class="gm-ov">
+      <div class="gm-ov-item">
+        <div class="gm-ov-ico">📅</div>
+        <div><h4>일시</h4><p><span style="white-space:nowrap;">2026년 9월 2일(수)</span> ~<br><span style="white-space:nowrap;">9월 6일(일)</span></p><small><span style="white-space:nowrap;">골프조 · 3박 5일</span> <span style="white-space:nowrap;">(호텔 3박 +<br>기내 1박)</span></small></div>
+      </div>
+      <div class="gm-ov-item">
+        <div class="gm-ov-ico">🏨</div>
+        <div><h4>숙소</h4><p>그랜드 하얏트 쿠알라룸푸르
+          <a class="gm-ov-map" href="https://www.google.com/maps/search/?api=1&query=Grand%20Hyatt%20Kuala%20Lumpur" target="_blank" rel="noopener">📍 지도 보기</a></p>
+          <small>5성급 · KLCC 지구 · 페트로나스 트윈타워 인접 · 3박 (양 조 공통)</small></div>
+      </div>
+      <div class="gm-ov-item">
+        <div class="gm-ov-ico">📍</div>
+        <div><h4>미팅</h4><p>09.02(수) 14:00 ·<br><span style="white-space:nowrap;">인천공항 제2터미널</span></p>
+          <small>3층 12번 출입구 → 동쪽 끝 <b>C-54 데스크</b> · 하단 '여행 준비 필수 사항' 참고</small></div>
+      </div>
+      <div class="gm-ov-item">
+        <div class="gm-ov-ico">📝</div>
+        <div><h4>전자입국카드(MDAC)</h4><p>인카블루투어에서 대행 제출합니다</p>
+          <small>참가자 개별 등록 불필요</small></div>
+      </div>
+    </div>
+
+    <!-- 항공편 -->
+    <div class="gm-flight">
+      <div class="gm-flight-head">✈️ 항공편 · 대한항공</div>
+      <div class="gm-flight-rows">
+        <div class="gm-flight-row">
+          <div><div class="gm-f-label">출국 · 9/2(수)</div><div class="gm-f-port">ICN</div><div class="gm-f-time">16:20</div></div>
+          <div class="gm-f-mid"><div class="gm-f-no">KE 427</div><div class="gm-f-line"></div><div class="gm-f-note">약 6시간 30분</div></div>
+          <div><div class="gm-f-label">쿠알라룸푸르 도착</div><div class="gm-f-port">KUL</div><div class="gm-f-time">21:50</div></div>
+        </div>
+        <div class="gm-flight-row">
+          <div><div class="gm-f-label">귀국 · 9/5(토)</div><div class="gm-f-port">KUL</div><div class="gm-f-time">23:20</div></div>
+          <div class="gm-f-mid"><div class="gm-f-no">KE 428</div><div class="gm-f-line"></div><div class="gm-f-note">익일 새벽 도착</div></div>
+          <div><div class="gm-f-label">인천 도착 · 9/6(일)</div><div class="gm-f-port">ICN</div><div class="gm-f-time">07:00</div></div>
+        </div>
+      </div>
+      <div class="gm-flight-foot">📝 <b>전자입국카드(MDAC)</b> — 말레이시아 입국에 필요한 MDAC은 <b>인카블루투어에서 일괄 대행</b>합니다. 개별 등록은 필요하지 않습니다.</div>
+    </div>
+
+    <div class="gm-banner">⭐ 대한항공은 <b>인천공항 제2터미널</b>에서 출발합니다. 미팅은 <b>14:00 · 3층 C-54 데스크</b>이니 꼭 확인해주세요! ⭐</div>
+
+    <!-- 미팅 약도 -->
+    <div class="gm-meetmap"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUEBAQEAwUEBAQGBQUGCA0ICAcHCBALDAkNExAUExIQEhIUFx0ZFBYcFhISGiMaHB4fISEhFBkkJyQgJh0gISD/2wBDAQUGBggHCA8ICA8gFRIVICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICD/wAARCAMUBXgDASIAAhEBAxEB/8QAHQABAAEFAQEBAAAAAAAAAAAAAAgBBAUGBwMCCf/EAG8QAAEDAwICBQUHDAwICAsGBwEAAgMEBREGBxIhCBMxQVEUImFxgRUXMlKRodEWGCMzQlZicpKUsdI3U1RVV3STlbKzwdMkNDU2Q3WCoiUmY3ODo8LiKERkdpaktMPU4eMJOEVGR2WF8ISG8Vil/8QAHAEBAAEFAQEAAAAAAAAAAAAAAAMBAgQFBgcI/8QAQBEAAgEDAgMEBwUHBAMBAQEBAAECAwQRBTESIUEGE1FhIjJxgZGh0RQVUrHBByMzQlPh8BZUYpIkov hazardous code omitted for brevity/compatibility ... " alt="인천공항 제2터미널 C-54 데스크 미팅 약도"><div class="gm-meetmap-cap">인천공항 제2터미널 3층 · 12번 출입구 → 동쪽 끝 여행사 카운터 <b>C-54 데스크</b></div></div>
+  </section>
+
+  <!-- 일자별 일정 -->
+  <section class="gm-sec">
+    <h2 class="gm-sec-title">일자별 일정</h2>
+    <div class="gm-days">
+      <input type="radio" name="gmday" id="gm-d1" checked>
+      <input type="radio" name="gmday" id="gm-d2">
+      <input type="radio" name="gmday" id="gm-d3">
+      <input type="radio" name="gmday" id="gm-d4">
+      <input type="radio" name="gmday" id="gm-d5">
+      <div class="gm-tabbar" style="grid-template-columns:repeat(5,1fr);">
+        <label for="gm-d1">1일차<em>9/2(수)</em></label>
+        <label for="gm-d2">2일차<em>9/3(목)</em></label>
+        <label for="gm-d3">3일차<em>9/4(금)</em></label>
+        <label for="gm-d4">4일차<em>9/5(토)</em></label>
+        <label for="gm-d5">5일차<em>9/6(일)</em></label>
+      </div>
+      <p class="gm-tab-hint">위의 버튼을 클릭하면 상세 일정이 나타납니다.</p>
+
+      <div class="gm-panel gm-p1">
+        <div class="gm-day">
+          <div class="gm-day-head"><h3>제1일차 · 9월 2일 (수)</h3><span>✈️ 인천 → 쿠알라룸푸르</span></div>
+          <ul class="gm-meal"><li><b>조</b>–</li><li><b>중</b>–</li><li><b>석</b>기내식</li></ul>
+          <div class="gm-tl">
+            <div class="gm-tl-item"><div class="gm-tl-time">14:00</div><h5>인천공항 제2터미널 미팅</h5><p>3층 12번 출입구 → 동쪽 끝 <span class="gm-em">C-54 데스크</span> · 여권 원본 지참</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time">16:20</div><h5>KE 427 인천 출발</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time">21:50</div><h5>쿠알라룸푸르 국제공항 도착</h5><p>현지시간 (한국보다 1시간 느림) · 가이드 미팅 후 전용버스 이동</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>호텔 체크인</h5><p>이동 약 60분 · 체크인 23시 이후 예상</p></div>
+          </div>
+          <div class="gm-hotel">🏨 그랜드 하얏트 쿠알라룸푸르<small>5성급 · KLCC</small></div>
+          <p class="gm-day-note">* 상기 일정은 항공 및 현지 사정에 의해 변동될 수 있습니다 *</p>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-p2">
+        <div class="gm-day">
+          <div class="gm-day-head"><h3>제2일차 · 9월 3일 (목)</h3><span>⛳ 글렌메리 CC 18홀</span></div>
+          <ul class="gm-meal"><li><b>조</b>호텔식</li><li><b>중</b>클럽식</li><li><b>석</b>스테이크</li></ul>
+          <div class="gm-tl">
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>호텔 조식</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>가이드 미팅 후 골프장 이동</h5><p>약 50분 소요</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time">08:30</div><h5>글렌메리 CC 18홀 라운드</h5><p><span class="gm-em">TEE OFF 08:30</span> · 글렌메리 골프 &amp; 컨트리클럽 (샤알람)</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>중식 · 클럽하우스 식사</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>라운드 종료 후 쿠알라룸푸르 귀환</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>전신 마사지 1시간 체험</h5><p>팁 포함</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>석식 · Marble 8 스테이크 하우스</h5><p>페트로나스 3타워 56층 · 미쉐린 가이드 선정 (하단 '맛집' 참고)</p></div>
+          </div>
+          <div class="gm-hotel">🏨 그랜드 하얏트 쿠알라룸푸르<small>5성급 · KLCC</small></div>
+          <p class="gm-day-note">* 상기 일정은 항공 및 현지 사정에 의해 변동될 수 있습니다 *</p>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-p3">
+        <div class="gm-day">
+          <div class="gm-day-head"><h3>제3일차 · 9월 4일 (금)</h3><span>⛳ 마인즈 리조트 CC 18홀</span></div>
+          <ul class="gm-meal"><li><b>조</b>호텔식</li><li><b>중</b>클럽식</li><li><b>석</b>한식</li></ul>
+          <div class="gm-tl">
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>호텔 조식</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>가이드 미팅 후 골프장 이동</h5><p>약 30분 소요</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time">08:30</div><h5>마인즈 리조트 CC 18홀 라운드</h5><p><span class="gm-em">TEE OFF 08:30</span> · 마인즈 리조트 &amp; 골프클럽 (스리켐방안)</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>중식 · 클럽하우스 식사</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>라운드 종료 후 쿠알라룸푸르 귀환</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>전신 마사지 1시간 체험</h5><p>팁 포함</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>석식 · 한식 (온세미로)</h5><p>관광조와 합류하여 함께 진행</p></div>
+          </div>
+          <div class="gm-hotel">🏨 그랜드 하얏트 쿠알라룸푸르<small>5성급 · KLCC</small></div>
+          <p class="gm-day-note">* 상기 일정은 항공 및 현지 사정에 의해 변동될 수 있습니다 *</p>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-p4">
+        <div class="gm-day">
+          <div class="gm-day-head"><h3>제4일차 · 9월 5일 (토)</h3><span>🏞️ 겐팅 · 시내관광 → 출국</span></div>
+          <ul class="gm-meal"><li><b>조</b>호텔식</li><li><b>중</b>현지식</li><li><b>석</b>뷔페식</li></ul>
+          <div class="gm-tl">
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>호텔 조식 후 체크아웃</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>겐팅 하이랜드 이동</h5><p>약 1시간 · <span class="gm-em">해발 약 1,800m 고원, 서늘하니 겉옷 준비!</span></p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>겐팅 하이랜드 · 스카이웨이 케이블카</h5><p>동남아 최장·최고속급 케이블카 탑승</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>중식 · 현지식 (마담콴)</h5><p>겐팅 SkyAvenue · 말레이 대표 메뉴 · <span class="gm-em">관광조와 합류</span> (하단 '맛집' 참고)</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>겐팅 카지노 관광 및 자유 쇼핑</h5></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>쿠알라룸푸르 귀환 후 시내 관광</h5><p>바투동굴 · 스리 마리아만 사원 · KLCC 페트로나스</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>전신 마사지 1시간 체험</h5><p>팁 포함</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>석식 · 레몬 가든(Lemon Garden) 뷔페</h5><p>샹그릴라 호텔 · KL 대표 프리미엄 뷔페 · <span class="gm-em">관광조와 합류</span> (하단 '맛집' 참고)</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time"></div><h5>푸트라자야 · PICC 전망대 야경</h5><p>일정에 따라 변동 가능</p></div>
+            <div class="gm-tl-item"><div class="gm-tl-time">23:20</div><h5>KE 428 쿠알라룸푸르 출발</h5></div>
+          </div>
+          <p class="gm-day-note">* 상기 일정은 항공 및 현지 사정에 의해 변동될 수 있습니다 *</p>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-p5">
+        <div class="gm-day">
+          <div class="gm-day-head"><h3>제5일차 · 9월 6일 (일)</h3><span>🛫 인천 도착</span></div>
+          <div class="gm-tl">
+            <div class="gm-tl-item"><div class="gm-tl-time">07:00</div><h5>인천국제공항 도착</h5><p>입국 후 해산 · 안녕히 가십시오 :)</p></div>
+          </div>
+          <p class="gm-day-note">* 상기 일정은 항공 및 현지 사정에 의해 변동될 수 있습니다 *</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 여행 준비 필수 사항 -->
+  <section class="gm-sec">
+    <h2 class="gm-sec-title">여행 준비 필수 사항</h2>
+    <div class="gm-prep">
+      <input type="radio" name="gmprep" id="gm-t1" checked>
+      <input type="radio" name="gmprep" id="gm-t2">
+      <input type="radio" name="gmprep" id="gm-t3">
+      <input type="radio" name="gmprep" id="gm-t4">
+      <div class="gm-tabbar">
+        <label for="gm-t1">✈️ 공항 · 미팅<em>C-54 데스크</em></label>
+        <label for="gm-t2">🎒 준비물<em>전압 · 환전 · eSIM</em></label>
+        <label for="gm-t3">🧳 수하물<em>반입 규정</em></label>
+        <label for="gm-t4">🛂 입국 유의<em>MDAC · 면세</em></label>
+      </div>
+      <p class="gm-tab-hint">위의 버튼을 클릭하면 상세 내용이 나타납니다.</p>
+
+      <div class="gm-panel gm-q1">
+        <div class="gm-card">
+          <h4>✈️ 공항 · 미팅 안내</h4>
+          <div class="gm-items">
+            <div class="gm-item"><div class="gm-item-ico">📍</div><div><h6>미팅 장소 · 시간</h6><p><b>9/2(수) 14:00</b> · 인천공항 <b>제2터미널 3층</b> 12번 출입구 → 동쪽 끝 <b>C-54 인카블루투어 데스크</b></p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">2️⃣</div><div><h6>대한항공 = 인천공항 제2터미널</h6><p><span class="gm-em">⭐ 대한항공은 제1터미널이 아닌 제2터미널 출발입니다!</span> 터미널을 잘못 가면 이동에 20분 이상 소요됩니다.</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">🕒</div><div><h6>권장 도착 시간</h6><p>미팅 <b>14:00</b> (출발 2시간 20분 전) · 여권 원본 지참 및 수하물 규정 사전 확인</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">🤝</div><div><h6>현지 가이드</h6><p>쿠알라룸푸르 도착 후 입국 수속을 마치면 가이드가 미팅합니다. 전 일정 전용차량·가이드가 함께하며 <b>가이드·기사 팁이 포함</b>되어 있습니다.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-q2">
+        <div class="gm-card">
+          <h4>🎒 준비물 및 옷차림</h4>
+          <div class="gm-items gm-2col">
+            <div class="gm-item"><div class="gm-item-ico">🛂</div><div><h6>여권</h6><p>유효기간 <b>6개월 이상</b> 필수 소지</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">🎫</div><div><h6>비자 · MDAC</h6><p>한국 여권은 <b>무비자 90일</b>. 전자입국카드(MDAC)는 <b>인카블루투어에서 대행</b>합니다.</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">🔌</div><div><h6>전압</h6><p>말레이시아는 <b>240V · Type G(3핀 사각)</b>로 한국과 다릅니다. <span class="gm-em">변환 어댑터 필수 지참!</span> 멀티탭도 함께 챙기면 편리합니다.</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">📶</div><div><h6>인터넷 · eSIM</h6><p>호텔 와이파이는 가능하나 외부 사용은 제한적입니다. 로밍 또는 eSIM을 미리 준비해주세요.<br><a class="gm-esim" href="https://mobiesim.airbridge.io/partners?code=0007&airbridge_referrer=airbridge%3Dtrue%26client_id%3De8760294-3ecb-4407-9405-f5b742753001%26event_uuid%3D175d2566-cf66-490d-af55-fe56c4afc23d%26referrer_timestamp%3D1781577056253%26short_id%3Dtzoiytj%26channel%3Dpartner%26campaign%3Dincar%26tracking_template_id%3D68e78b694a01edbd3051a98b12b7fa1c&https_deeplink=true&short_id=tzoiytj" target="_blank" rel="noopener">📱 eSIM 신청하기 <small>인카블루투어 제휴</small></a></p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">💵</div><div><h6>환전 · 카드</h6><p>화폐는 <b>링깃(MYR/RM)</b>. USD 지참 후 현지 환전이 일반적이며, 카드 사용도 보편적입니다. 소액 현금을 함께 준비하세요.</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">🕐</div><div><h6>시차</h6><p>말레이시아는 한국보다 <b>1시간 느립니다.</b> (한국 12:00 = KL 11:00)</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">👕</div><div><h6>옷차림</h6><p>9월 KL은 <b>고온다습(낮 최고 32℃ 내외)</b>하며 스콜성 소나기가 잦습니다. 여름옷 + 실내 냉방 대비 얇은 겉옷을 준비하세요.</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">🧥</div><div><h6>겐팅 하이랜드</h6><p>해발 약 1,800m 고원으로 <span class="gm-em">시내보다 10℃ 이상 서늘합니다.</span> 4일차 겐팅 방문 시 <b>겉옷</b>을 꼭 챙기세요.</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">⛳</div><div><h6>골프 준비물</h6><p>라운드 2회 · 골프화 · 장갑 · 자외선 차단제 · 우의(스콜 대비). 클럽 대여 관련은 가이드에게 문의해주세요.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-q3">
+        <div class="gm-card">
+          <h4>🧳 항공 수하물 · 반입 규정 (대한항공 일반석)</h4>
+          <table class="gm-table"><tr><th>위탁 수하물</th><td>1인 <b>23kg 이내</b> (무료 허용 개수는 발권 조건에 따라 상이 — 확정 후 안내)</td></tr><tr><th>기내 반입</th><td>1인 <b>10kg 이내</b> (1개)</td></tr><tr><th>└ 액체류</th><td>용기당 100ml 이하 · 1L 투명 지퍼백 1개 (1인 1개)</td></tr><tr><th>└ 보조배터리</th><td><b>위탁 불가 · 반드시 기내 휴대</b> (아래 상세 참고)</td></tr></table>
+          <div class="gm-items">
+            <div class="gm-item"><div class="gm-item-ico">🔋</div><div><h6>보조배터리</h6><p>위탁 불가, <span class="gm-em">반드시 기내 휴대.</span> 100Wh(약 2만mAh) 이하 최대 5개 / 100~160Wh(3만mAh급) 승인 후 2개 / 160Wh 초과 반입 금지. 단자를 <b>절연테이프 처리</b>하거나 <b>1개당 투명 지퍼백</b>에 넣어 직접 휴대해야 하며, 기내 선반 보관 · 충전은 금지됩니다.</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">💇</div><div><h6>고데기</h6><p>배터리 내장형은 위탁/소지 모두 제한될 수 있습니다. 무선 고데기(다이슨 포함)는 <b>대한항공에 사전 문의</b>해주세요. (대한항공 1588-2000)</p></div></div>
+            <div class="gm-item"><div class="gm-item-ico">🔥</div><div><h6>라이터</h6><p>1인 1개만 기내 휴대 가능합니다.</p></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-q4">
+        <div class="gm-card">
+          <h4>🛂 말레이시아 입국 유의사항</h4>
+          <div class="gm-warn">🚫 <b>전자담배 주의!</b> 말레이시아는 전자담배(액상형 포함)에 대한 규제가 강화되어 판매·소지가 제한되며, 공공장소 흡연·베이핑 시 벌금이 부과될 수 있습니다. <b>반입·소지를 자제</b>하시길 권장합니다. (규정은 변동될 수 있어 출발 전 재확인)</div>
+          <table class="gm-table"><tr><th>전자입국카드</th><td><b>MDAC</b> — 인카블루투어에서 일괄 대행 (개별 등록 불필요)</td></tr><tr><th>주류</th><td>1인 <b>1리터</b>까지 면세 (와인·증류주·맥주 합산)</td></tr><tr><th>담배</th><td>면세 혜택 폐지 — 반입 시 신고·과세 대상이므로 <b>반입 자제 권장</b></td></tr><tr><th>기타 물품</th><td>항공 여행자 <b>RM1,000 상당</b>까지</td></tr><tr><th>현금</th><td>미화 <b>10,000달러 상당 초과</b> 시 세관 신고</td></tr></table>
+          <div class="gm-tip">💡 단체 식당·매장은 <b>세금·서비스차지(약 16~20%)</b>가 별도 가산될 수 있습니다. 힌두 사원(스리 마리아만)·바투동굴 등은 <b>무릎을 덮는 복장</b>이 필요하며 신발을 벗는 곳이 있습니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 맛집 · 골프장 · 관광 스팟 -->
+  <section class="gm-sec">
+    <h2 class="gm-sec-title">🌟 일정 스팟 안내</h2>
+    <div class="gm-spot-tabs">
+      <input type="radio" name="gmspot" id="gm-s1" checked>
+      <input type="radio" name="gmspot" id="gm-s2">
+      <input type="radio" name="gmspot" id="gm-s3">
+      <div class="gm-tabbar">
+        <label for="gm-s1">🍽️ 맛집<em>4곳</em></label>
+        <label for="gm-s2">⛳ 골프장<em>2곳</em></label>
+        <label for="gm-s3">🎡 관광 스팟<em>겐팅 · 시내</em></label>
+      </div>
+      <p class="gm-tab-hint">위의 버튼을 클릭하면 상세 내용이 나타납니다. 카드를 누르면 구글 지도로 연결됩니다.</p>
+
+      <div class="gm-panel gm-sp1">
+        <div class="gm-spots">
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Marble%208%20Steakhouse%20Kuala%20Lumpur" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>마블 8 스테이크하우스</h5><small>Marble 8 · Menara 3 Petronas 56F</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p><b>미쉐린 가이드 선정 스테이크하우스.</b> 56층에서 페트로나스 트윈타워를 바라보며 즐기는 21일 이상 드라이에이징 호주산 와규·앵거스 스테이크. <b>9/3(목) 석식</b>.</p></a>
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Lemon%20Garden%20Shangri-La%20Kuala%20Lumpur" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>레몬 가든</h5><small>Lemon Garden · Shangri-La Hotel</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p><b>쿠알라룸푸르 대표 프리미엄 뷔페.</b> 해산물·말레이시아 음식·중식·일식·양식·디저트까지 다양한 라이브 키친. 단체 식사에 적합. <b>9/5(토) 석식 · 골프조·관광조 합류</b>.</p></a>
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Madam%20Kwan's%20SkyAvenue%20Genting" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>마담콴</h5><small>Madam Kwan's · SkyAvenue, Genting</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p><b>말레이시아 대표 로컬 레스토랑.</b> 나시르막·치킨라이스·커리락사 등 인기 메뉴. 겐팅 SkyAvenue 위치. <b>9/5(토) 겐팅 중식 · 골프조·관광조 합류</b>.</p></a>
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=%EC%98%A8%EC%84%B8%EB%AF%B8%EB%A1%9C%20%ED%95%9C%EC%8B%9D%20Kuala%20Lumpur" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>온세미로</h5><small>한식 · Kuala Lumpur</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p>현지에서 즐기는 <b>한식</b>. <b>9/4(금) 석식</b>에 관광조와 합류하여 함께 진행합니다.</p></a>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-sp2">
+        <div class="gm-golf">
+          <div class="gm-golf-card">
+            <div class="gm-golf-head"><h5>글렌메리 골프 &amp; 컨트리클럽</h5><small>Glenmarie G&amp;CC · 샤알람</small></div>
+            <span class="gm-golf-tee">⛳ 9/3(목) · TEE OFF 08:30 · 18홀</span>
+            <div class="gm-golf-grid">
+              <div><b>규모</b>36홀 (Garden · Valley)</div>
+              <div><b>파 / 길이</b>파72 · Garden 6,404yd / Valley 6,412yd</div>
+              <div><b>설계 / 개장</b>Max Wexler · 1993년</div>
+              <div><b>위치</b>슬랑오르주 샤알람 (KL 약 40분)</div>
+            </div>
+            <p>가든·밸리 두 개의 18홀 코스를 보유한 <b>슬랑오르 대표 클럽</b>. 플러드라이트(야간 조명) 시설을 갖춰 일몰 후에도 라운드가 가능하며, 시계탑이 있는 <b>블루 루프 클럽하우스</b>가 상징입니다. 버뮤다 그래스 파크랜드 스타일.</p>
+          </div>
+          <div class="gm-golf-card">
+            <div class="gm-golf-head"><h5>마인즈 리조트 &amp; 골프클럽</h5><small>The Mines Resort &amp; GC · 스리켐방안</small></div>
+            <span class="gm-golf-tee">⛳ 9/4(금) · TEE OFF 08:30 · 18홀</span>
+            <div class="gm-golf-grid">
+              <div><b>규모</b>18홀 (Crane · Eagle Nine)</div>
+              <div><b>파 / 길이</b>파71 · 챔피언십 약 6,966yd</div>
+              <div><b>설계 / 개장</b>Robert Trent Jones Jr. · 1994년</div>
+              <div><b>위치</b>슬랑오르주 스리켐방안 (KL 약 30분)</div>
+            </div>
+            <p><b>1997년 월드컵 오브 골프 개최지</b>이자 아시안투어 KL 오픈 정기 개최 코스. 세계 최대 노천 주석광산 부지를 리조트로 조성했으며, 전반 9홀은 정글 지형, 후반 9홀은 <b>대형 호수</b>를 따라 전개되는 명문 코스입니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="gm-panel gm-sp3">
+        <div class="gm-spots">
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Genting%20Highlands%20Malaysia" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>겐팅 하이랜드</h5><small>Genting Highlands · 스카이웨이</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p>해발 약 1,800m 고원의 <b>말레이시아 최대 복합 리조트.</b> 도심보다 10℃ 이상 서늘하며 실내 테마파크·쇼핑몰·카지노가 밀집. 동남아 최장·최고속급 <b>스카이웨이 케이블카</b> 탑승. <b>9/5(토)</b>.</p></a>
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Batu%20Caves%20Kuala%20Lumpur" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>바투 동굴</h5><small>Batu Caves</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p>272개의 무지개색 계단으로 유명한 <b>석회암 동굴 힌두 사원.</b> 입구에 무루간 신의 거대 황금 동상. <span class="gm-em">계단이 가파르고 무릎 덮는 복장 필요.</span></p></a>
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Sri%20Mahamariamman%20Temple%20Kuala%20Lumpur" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>스리 마리아만 사원</h5><small>Sri Mahamariamman Temple</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p>1873년에 세워진 <b>KL에서 가장 오래된 힌두 사원.</b> 차이나타운 인근에 위치하며 정교한 고푸람 탑이 상징입니다.</p></a>
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Petronas%20Twin%20Towers" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>KLCC 페트로나스 트윈타워</h5><small>Petronas Twin Towers</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p>높이 452m·88층의 <b>쌍둥이 타워.</b> 하부 수리아 KLCC 쇼핑몰과 KLCC 공원(분수쇼)이 연결되어 관광·쇼핑을 함께 즐깁니다. 호텔에서 도보 이동 가능.</p></a>
+          <a class="gm-spot" href="https://www.google.com/maps/search/?api=1&query=Putrajaya%20PICC" target="_blank" rel="noopener">
+            <div class="gm-spot-head"><h5>푸트라자야 · PICC</h5><small>Putrajaya</small></div>
+            <span class="gm-spot-map">지도 ›</span>
+            <p>세종시의 롤모델이 된 <b>말레이시아 행정수도.</b> PICC 전망대에서 야경을 감상한 뒤 공항으로 이동합니다. (출국일 야간, 변동 가능)</p></a>
+        </div>
+      </div>
+    </div>
+    <div class="gm-tip">🧭 <b>이용 팁</b> — 단체 일정 내 식사는 사전 확정 메뉴로 진행됩니다. 그랜드 하얏트는 KLCC 지구에 있어 페트로나스 트윈타워·수리아 KLCC는 도보 이동이 가능합니다. ※ 영업시간·위치는 변동될 수 있으니 방문 전 지도에서 확인해주세요.</div>
+  </section>
+
+  <!-- 현지 연락처 -->
+  <section class="gm-sec">
+    <h2 class="gm-sec-title">📞 문의 · 연락처</h2>
+    <div class="gm-card">
+      <div class="gm-items gm-2col">
+        <div class="gm-item"><div class="gm-item-ico">☎️</div><div><h6>인카블루투어</h6><p><a href="tel:0244234 95"><b>T. 02-442-3495</b></a><br>여행 준비·현지 일정 문의</p></div></div>
+        <div class="gm-item"><div class="gm-item-ico">🇰🇷</div><div><h6>영사콜센터 (24시간)</h6><p><b>+82-2-3210-0404</b><br>해외 긴급 상황 시</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 카카오톡 문의 -->
+  <div class="gm-cta">
+    <h3>궁금한 점이 있으신가요?</h3>
+    <p>여행 준비부터 현지 일정까지, 무엇이든 편하게 물어보세요.</p>
+    <a class="gm-kakao" href="https://pf.kakao.com/_xhqNhX" target="_blank" rel="noopener">💬 카카오톡 문의하기</a>
+    <small>인카블루투어 카카오톡 채널로 연결됩니다 · ☎ 02-442-3495</small>
+  </div>
+
+  <!-- 푸터 -->
+  <footer class="gm-footer gm-bleed">
+    <b>2026 인카 우수영업관리자 해외 컨퍼런스 · 쿠알라룸푸르 (골프조)</b><br>
+    <span class="gm-slogan">인생 여행의 카운슬러 · 인카블루투어</span><br>
+    ☎ 02-442-3495 · www.icbt.co.kr
+    <span class="gm-copy">Copyright © 2026 INCAR BLUE TOUR. All Rights Reserved.</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
