@@ -93,9 +93,13 @@ a{text-decoration:none;color:inherit;}
       <span class="kl-live-sub" id="kl-wx-sub">시내 기준 · 탭하여 확인 ›</span></span>
     </a>
     <a class="kl-live-card" href="https://www.kebhana.com/exchange_rate/excRate.do?subMenu=1" target="_blank" rel="noopener">
-      <span class="kl-live-ico" style="font-size:16px;font-weight:800;color:var(--kl-navy);white-space:nowrap;">환율</span>
-      <span><span class="kl-live-main" id="kl-fx-main">MYR 환율</span>
-      <span class="kl-live-sub" id="kl-fx-sub">하나은행 실시간 환율 보기 ›</span></span>
+      <span class="kl-live-ico" style="display:flex;align-items:center;">
+       <img src="https://flagcdn.com/w80/my.png" alt="말레이시아 국기" style="width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 1px 3px rgba(0,0,0,0.15);">
+      </span>
+      <span>
+       <span class="kl-live-main" id="kl-fx-main">MYR 환율</span>
+       <span class="kl-live-sub" id="kl-fx-sub">하나은행 실시간 환율 보기 ›</span>
+      </span>
     </a>
   </div>
 </div>
@@ -141,7 +145,8 @@ a{text-decoration:none;color:inherit;}
         var cw=j.current_weather; if(!cw)return;
         var ic=wxIcon(cw.weathercode);
         wI.textContent=ic[0];
-        wM.textContent='KL '+Math.round(cw.temperature)+'℃ · '+ic[1];
+        // 'KL ' 대신 '쿠알라룸푸르 '로 수정
+        wM.textContent='쿠알라룸푸르 '+Math.round(cw.temperature)+'℃ · '+ic[1];
         wS.textContent='시내 현재 날씨 · 탭하여 상세 보기 ›';
       }).catch(function(){});
   }
