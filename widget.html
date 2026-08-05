@@ -19,6 +19,7 @@ body{
   --kl-lagoon-soft:#E4F6F8;
   --kl-gray:#6B7280;
   --kl-line:#E5E7EB;
+  --mobi-navy:#27398C;
 }
 a{text-decoration:none;color:inherit;}
 
@@ -62,7 +63,39 @@ a{text-decoration:none;color:inherit;}
 .kl-live-main{display:block;font-size:15px;font-weight:800;color:var(--kl-navy);line-height:1.3;font-variant-numeric:tabular-nums;}
 .kl-live-sub{display:block;font-size:11.5px;color:var(--kl-gray);margin-top:2px;}
 
-/* 하단 버튼 영역 추가 */
+/* mobi 제휴 배너 */
+.mobi-banner-card{
+  display:flex;align-items:center;justify-content:space-between;
+  background:#fff;border:1px solid var(--kl-line);border-radius:16px;
+  padding:12px 14px;margin-top:8px;
+  box-shadow:0 4px 14px rgba(27,42,107,.10);
+  transition:all 0.2s ease;
+  gap:8px;
+}
+.mobi-banner-card:hover{border-color:var(--mobi-navy); background:#F9FAFB;}
+
+.mobi-banner-left{
+  display:flex;align-items:center;gap:10px;
+  min-width:0;
+  flex:1 1 auto;
+}
+
+.mobi-svg-logo{
+  height:18px;
+  width:auto;
+  flex:0 0 auto;
+  color:#20242E;
+}
+
+.mobi-badge{
+  background:var(--mobi-navy);
+  color:#fff;
+  font-size:11px;font-weight:800;padding:4px 8px;border-radius:20px;
+  flex:0 0 auto;
+  white-space:nowrap;
+}
+
+/* 하단 2열 버튼 영역 */
 .kl-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
 .kl-btn-card{
   display:flex;align-items:center;gap:10px;
@@ -70,16 +103,24 @@ a{text-decoration:none;color:inherit;}
   padding:12px 14px;
   box-shadow:0 4px 14px rgba(27,42,107,.10);
   transition:all 0.2s ease;
+  min-width:0;
 }
 .kl-btn-card:hover{border-color:var(--kl-lagoon);}
 
 @media (max-width:480px){
   .kl-clock{padding:14px 4px 12px;}
   .kl-live{grid-template-columns:1fr;}
-  .kl-btns{grid-template-columns:1fr;} /* 모바일에서 1열로 변경되어 깨짐 방지 */
-  .kl-live-ico{font-size:24px;}
-  .kl-live-main{font-size:14px;}
-  .kl-live-card, .kl-btn-card{padding:10px 12px;gap:8px;}
+  .kl-btns{grid-template-columns:1fr;}
+  .kl-live-ico{font-size:22px;}
+  .kl-live-main{font-size:13.5px;}
+  .kl-live-sub{font-size:10.5px;}
+  
+  .mobi-banner-card{padding:10px 10px; gap:6px;}
+  .mobi-banner-left{gap:8px;}
+  .mobi-svg-logo{height:15px;}
+  .mobi-badge{font-size:10px; padding:3px 6px;}
+  
+  .kl-live-card, .kl-btn-card{padding:10px 10px;gap:8px;}
 }
 </style>
 </head>
@@ -116,21 +157,45 @@ a{text-decoration:none;color:inherit;}
     </a>
   </div>
 
-  <!-- 새로 추가된 버튼 영역 -->
+  <!-- mobi X 인카블루투어 제휴 구매 버튼 -->
+  <a class="mobi-banner-card" href="https://link.mobiesim.co.kr/tzoiytj" target="_blank" rel="noopener">
+    <div class="mobi-banner-left">
+      <svg class="mobi-svg-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 24" fill="currentColor">
+        <g clip-path="url(#mobi_logo_svg__a)">
+          <path d="M89.337 7.527c-1.32-.781-2.86-1.178-4.573-1.178-1.712 0-3.227.397-4.557 1.178a8.57 8.57 0 0 0-3.137 3.151c-.749 1.31-1.13 2.779-1.13 4.365s.381 3.05 1.13 4.347a8.6 8.6 0 0 0 3.137 3.138c1.332.782 2.865 1.177 4.557 1.177s3.252-.397 4.573-1.177a8.63 8.63 0 0 0 3.121-3.138c.75-1.297 1.13-2.76 1.13-4.347 0-1.586-.381-3.054-1.131-4.365a8.6 8.6 0 0 0-3.121-3.153zm-.332 10.022a4.8 4.8 0 0 1-1.685 1.856c-.727.465-1.587.7-2.556.7s-1.83-.235-2.556-.7a4.76 4.76 0 0 1-1.685-1.856 5.4 5.4 0 0 1-.592-2.506c0-.897.199-1.775.592-2.54a4.76 4.76 0 0 1 1.685-1.855c.727-.465 1.587-.7 2.556-.7s1.829.235 2.556.7a4.77 4.77 0 0 1 1.685 1.856c.393.766.593 1.62.593 2.54 0 .918-.2 1.738-.593 2.505M65.536 6.343c-2.252 0-4.352.91-5.912 2.561l-.149.158-.149-.158a8.06 8.06 0 0 0-5.912-2.561c-4.489 0-8.141 3.652-8.141 8.141v8.832h4.221v-8.832c0-2.16 1.76-3.92 3.92-3.92a3.925 3.925 0 0 1 3.92 3.92v8.832h4.282v-8.832c0-2.16 1.76-3.92 3.92-3.92s3.92 1.76 3.92 3.92v8.832h4.221v-8.832c0-4.489-3.652-8.141-8.14-8.141Zm44.109 1.271c-1.337-.79-2.894-1.192-4.627-1.192-1.734 0-3.236.395-4.579 1.175l-.307.18V0H96.09v15.218c0 1.605.384 3.084 1.144 4.397.759 1.316 1.827 2.382 3.175 3.174 1.373.796 2.914 1.191 4.61 1.191s3.292-.4 4.627-1.192a8.7 8.7 0 0 0 3.159-3.173c.759-1.313 1.144-2.792 1.144-4.397 0-1.604-.385-3.09-1.144-4.415a8.7 8.7 0 0 0-3.157-3.19zm-.34 10.136a4.8 4.8 0 0 1-1.703 1.876c-.734.47-1.603.707-2.583.707s-1.848-.238-2.582-.707a4.8 4.8 0 0 1-1.704-1.876 5.5 5.5 0 0 1-.599-2.532c0-.906.201-1.793.599-2.566a4.8 4.8 0 0 1 1.704-1.876c.734-.47 1.602-.709 2.582-.709s1.849.239 2.583.709a4.8 4.8 0 0 1 1.703 1.876c.399.775.6 1.638.6 2.566s-.201 1.759-.6 2.532m11.418-11.01h-3.992v16.541h3.992zm-1.995-1.813a2.4 2.4 0 0 0 2.398-2.398A2.4 2.4 0 0 0 118.728.13a2.4 2.4 0 0 0-2.398 2.398 2.4 2.4 0 0 0 2.398 2.398ZM13.822 15.583l-.063-.072.079.094-.015-.022zm1.863 1.885-1.744-1.75-.047-.052c.027.03.054.063.083.091l1.708 1.709zm11.097 3.294c.032-.05.059-.104.09-.154zm-.328.478q.014-.017.025-.035a.2.2 0 0 0-.025.036ZM16.33 18.115l-.409-.409-.237-.239zm-2.438-2.45s-.009-.008-.012-.014c-.015-.016-.027-.034-.044-.05l.013.016zm-.134-.155a4 4 0 0 1-.273-.359l-.026.022z"></path>
+          <path d="m25.816 12.284-1.813-1.813-2.047 2.048.292.292 1.52 1.52a3.95 3.95 0 0 1 1.154 2.948 3.95 3.95 0 0 1-1.154 2.663c-.046.047-.097.088-.145.133a3.93 3.93 0 0 1-2.66 1.03 3.95 3.95 0 0 1-2.805-1.161l-1.827-1.827-.646-.648-1.71-1.709q-.042-.043-.082-.091l-.043-.049-.012-.016-.08-.093-.3-.338.028-.021a3.92 3.92 0 0 1-.673-2.199 3.94 3.94 0 0 1 1.161-2.805 3.954 3.954 0 0 1 5.045-.456q.007.005.013.007l2.064-2.064s-.015-.009-.02-.014c-2.692-2.172-6.65-2.02-9.15.48a6.82 6.82 0 0 0-2.01 4.854c0 1.834.682 3.462 1.913 4.747q.048.053.097.106l1.946 1.946 2.236 2.236A6.82 6.82 0 0 0 20.961 24a6.8 6.8 0 0 0 4.274-1.504c.15-.12.3-.246.441-.38.045-.043.095-.081.138-.126.094-.093.176-.194.262-.29q.199-.224.375-.459l.026-.035q.16-.218.303-.444.046-.076.09-.154.107-.177.203-.359a6.3 6.3 0 0 0 .463-1.172 6.86 6.86 0 0 0-1.724-6.793z"></path>
+          <path d="m16.098 17.061-1.746-1.75.034.038zm-1.746-1.751-.032-.036-.002-.001.033.036zm-2.912 2.82s-.01-.014-.018-.02l-1.737 1.738c-1.425 1.425-3.719 1.674-5.314.443a3.972 3.972 0 0 1-.393-5.955l3.198-3.198L9.624 8.69a1.448 1.448 0 0 0-2.048-2.048L2.08 12.139c-2.667 2.667-2.818 7.178-.155 9.848A6.84 6.84 0 0 0 6.783 24c1.76 0 3.516-.67 4.853-2.006l1.83-1.831-1.947-1.947-.079-.085Z"></path>
+          <path d="M35.243 12.283 31.061 8.1c-2.49-2.493-6.434-2.655-9.124-.505-.043.034-.085.074-.128.11l-.913.919-1.718 1.728-.111.111-4.778 4.778.013.016.014.015h.004l.032.04 1.744 1.747.235.235 3.127-3.126 2.075-2.075.082-.082L23 10.627l.794-.794c.025-.02.053-.032.079-.052.052-.037.105-.068.157-.104.66-.443 1.413-.69 2.177-.69 1.016 0 2.032.387 2.806 1.159l4.182 4.182a3.97 3.97 0 0 1 0 5.61 3.94 3.94 0 0 1-2.806 1.161 3.93 3.93 0 0 1-2.616-.99c-.06.133-.115.267-.182.396a8 8 0 0 1-.222.393l-.097.164a8 8 0 0 1-.763 1.016l-.063.071a5 5 0 0 1-.222.244q-.051.05-.106.097a6.8 6.8 0 0 0 4.271 1.503 6.82 6.82 0 0 0 4.854-2.01 6.87 6.87 0 0 0 0-9.707zM16.331 17.294l-.233-.234zm10.147 3.912"></path>
+        </g>
+        <defs>
+          <clipPath id="mobi_logo_svg__a">
+            <path d="M0 0h121.125v24H0z"></path>
+          </clipPath>
+        </defs>
+      </svg>
+      <div style="min-width:0;">
+        <span class="kl-live-main" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">인카블루투어 전용 eSIM 구매</span>
+        <span class="kl-live-sub" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">eSIM 로밍 | mobi 특별 혜택 ›</span>
+      </div>
+    </div>
+    <span class="mobi-badge">제휴혜택</span>
+  </a>
+
+  <!-- 하단 버튼 영역 (캡처 이미지 내용 그대로 반영) -->
   <div class="kl-btns">
     <a class="kl-btn-card" href="#" target="_blank" rel="noopener">
       <span class="kl-live-ico">📱</span>
-      <span>
-        <span class="kl-live-main">eSIM 모비 사용가이드·인카블루투어 제휴 </span>
-        <span class="kl-live-sub">통신사가 만든 eSIM 로밍 | mobi ›</span>
-      </span>
+      <div style="min-width:0;">
+        <span class="kl-live-main" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">eSIM 모비 사용가이드·인카블루투어 제휴</span>
+        <span class="kl-live-sub" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">통신사가 만든 eSIM 로밍 | mobi ›</span>
+      </div>
     </a>
     <a class="kl-btn-card" href="#" target="_blank" rel="noopener">
       <span class="kl-live-ico">🎧</span>
-      <span>
-        <span class="kl-live-main">고객센터 365일 연중무휴</span>
-        <span class="kl-live-sub">통신사가 만든 eSIM 로밍 | mobi ›</span>
-      </span>
+      <div style="min-width:0;">
+        <span class="kl-live-main" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">고객센터 365일 연중무휴</span>
+        <span class="kl-live-sub" style="white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">통신사가 만든 eSIM 로밍 | mobi ›</span>
+      </div>
     </a>
   </div>
 </div>
