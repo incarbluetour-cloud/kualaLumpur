@@ -62,12 +62,24 @@ a{text-decoration:none;color:inherit;}
 .kl-live-main{display:block;font-size:15px;font-weight:800;color:var(--kl-navy);line-height:1.3;font-variant-numeric:tabular-nums;}
 .kl-live-sub{display:block;font-size:11.5px;color:var(--kl-gray);margin-top:2px;}
 
+/* 하단 버튼 영역 추가 */
+.kl-btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
+.kl-btn-card{
+  display:flex;align-items:center;gap:10px;
+  background:#fff;border:1px solid var(--kl-line);border-radius:16px;
+  padding:12px 14px;
+  box-shadow:0 4px 14px rgba(27,42,107,.10);
+  transition:all 0.2s ease;
+}
+.kl-btn-card:hover{border-color:var(--kl-lagoon);}
+
 @media (max-width:480px){
   .kl-clock{padding:14px 4px 12px;}
   .kl-live{grid-template-columns:1fr;}
+  .kl-btns{grid-template-columns:1fr;} /* 모바일에서 1열로 변경되어 깨짐 방지 */
   .kl-live-ico{font-size:24px;}
   .kl-live-main{font-size:14px;}
-  .kl-live-card{padding:10px 12px;gap:8px;}
+  .kl-live-card, .kl-btn-card{padding:10px 12px;gap:8px;}
 }
 </style>
 </head>
@@ -86,6 +98,7 @@ a{text-decoration:none;color:inherit;}
       <span class="kl-clock-sub" id="kl-date-kl">말레이시아 표준시</span>
     </div>
   </div>
+
   <div class="kl-live">
     <a class="kl-live-card" href="https://www.google.com/search?q=%EC%BF%A0%EC%95%8C%EB%9D%BC%EB%A3%B8%ED%91%B8%EB%A5%B4+%EB%82%A0%EC%94%A8" target="_blank" rel="noopener">
       <span class="kl-live-ico" id="kl-wx-ico">🌤️</span>
@@ -102,7 +115,26 @@ a{text-decoration:none;color:inherit;}
       </span>
     </a>
   </div>
+
+  <!-- 새로 추가된 버튼 영역 -->
+  <div class="kl-btns">
+    <a class="kl-btn-card" href="#" target="_blank" rel="noopener">
+      <span class="kl-live-ico">📱</span>
+      <span>
+        <span class="kl-live-main">eSIM 모비 사용가이드·인카블루투어 제휴 </span>
+        <span class="kl-live-sub">통신사가 만든 eSIM 로밍 | mobi ›</span>
+      </span>
+    </a>
+    <a class="kl-btn-card" href="#" target="_blank" rel="noopener">
+      <span class="kl-live-ico">🎧</span>
+      <span>
+        <span class="kl-live-main">고객센터 365일 연중무휴</span>
+        <span class="kl-live-sub">통신사가 만든 eSIM 로밍 | mobi ›</span>
+      </span>
+    </a>
+  </div>
 </div>
+
 <script>
 (function(){
   var tk=document.getElementById('kl-time-kr'), tg=document.getElementById('kl-time-kl'),
@@ -145,7 +177,6 @@ a{text-decoration:none;color:inherit;}
         var cw=j.current_weather; if(!cw)return;
         var ic=wxIcon(cw.weathercode);
         wI.textContent=ic[0];
-        // 'KL ' 대신 '쿠알라룸푸르 '로 수정
         wM.textContent='쿠알라룸푸르 '+Math.round(cw.temperature)+'℃ · '+ic[1];
         wS.textContent='시내 현재 날씨 · 탭하여 상세 보기 ›';
       }).catch(function(){});
